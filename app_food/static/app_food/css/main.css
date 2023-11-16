@@ -1,0 +1,32 @@
+header {
+    padding-bottom: 5px;
+    padding-top: 5px;
+    height: 140px;
+    padding-right: 10px;
+}
+
+a img {
+    margin-top: 1px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: 120px;
+    padding-left: 20px;
+
+}
+
+a span {
+    vertical-align: inherit;
+}
+
+ul li {
+    vertical-align: inherit;
+}
+
+ul button {
+    vertical-align: inherit
+}
+
+ul button {
+    height: 54px;
+    width: 176px;
+}
