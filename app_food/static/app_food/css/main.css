@@ -5,6 +5,13 @@ header {
     padding-right: 10px;
 }
 
+.logo {
+    font-family: 'Noto Sans Tangsa', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-size: 60px;
+    color: blue;
+}
+
 a img {
     margin-top: 1px;
     padding-top: 0px;
