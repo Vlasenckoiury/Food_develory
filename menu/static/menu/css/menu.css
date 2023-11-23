@@ -1,0 +1,54 @@
+.features {
+    margin-left: 60px;
+}
+
+h1 {
+    text-align: center;
+    padding-right: 55px;
+}
+
+.pizza {
+    display:inline;
+    float:inline-start;
+    border-radius: 15px;
+    box-shadow: 3px 7px 14px rgba(20, 5, 230, 0.699);
+    width:400px;
+    height:450px;
+    padding-left: 50px;
+    padding-bottom: 0px;
+    border-bottom-width: 50px;
+    margin-bottom: 50px;
+    padding-right: 50px;
+    margin-top: 50px;
+    margin-right: 20px;
+
+}
+
+.pizza img {
+    width:259px;
+    height:259px;
+}
+
+.pizza-name{
+    white-space: nowrap; /* Отменяем перенос текста */
+    overflow: hidden; /* Обрезаем содержимое */
+    padding: 5px; /* Поля */
+    text-overflow: ellipsis; /* Многоточие */
+   }
+
+.pizza-name:hover {
+    background: #f0f0f0; /* Цвет фона */
+    white-space: normal; /* Обычный перенос текста */
+}
+
+.description{
+    white-space: nowrap; /* Отменяем перенос текста */
+    overflow: hidden; /* Обрезаем содержимое */
+    padding: 5px; /* Поля */
+    text-overflow: ellipsis; /* Многоточие */
+   }
+.description:hover {
+    background: #f0f0f0; /* Цвет фона */
+    white-space: normal; /* Обычный перенос текста */
+}
+
