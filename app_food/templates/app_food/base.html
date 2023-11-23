@@ -8,22 +8,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{% static 'app_food/css/main.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="/static/app_food/js/base.js"></script>
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom" style="padding-bottom: 25px">
-    <a href="{% url 'home' %}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-        <img src="/static/app_food/img/logo.jpg" alt="Лого">
-        <span class="logo">Pizza</span>
-    </a>
-    <ul class="nav nav-pills">
-        <li class="nav-item"><a href="{% url 'home' %}" class="nav-link active" aria-current="page">Дом</a></li>
-        <li class="nav-item"><a href="{% url 'menu' %}" class="nav-link">Меню</a></li>
-        <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Контакты</a></li>
-        <button type="button" class="btn btn-outline-primary me-2">Авторизоваться</button>
-        <button type="button" class="btn btn-primary">Зарегистрироваться</button>
-    </ul>
-</header>
-{% block content %} {% endblock %}
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="{% url 'home' %}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <img src="/static/app_food/img/logo.jpg" alt="Лого">
+            <span class="logo">Pizza</span>
+        </a>
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="{% url 'home' %}" class="nav-link active" aria-current="page">Дом</a></li>
+            <li class="nav-item"><a href="{% url 'menu' %}" class="nav-link">Меню</a></li>
+            <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Контакты</a></li>
+            <button type="button" class="btn btn-outline-primary me-2">Авторизоваться</button>
+            <button type="button" class="btn btn-primary">Зарегистрироваться</button>
+        </ul>
+    </header>
+    <div class="content">
+        {% block content %} {% endblock %}
+    </div>
+    <div id="clock"></div>
+<a href="#" title="Вернуться вверх" class="button-up" style="width: 50px;height: 70px;">
+    <img src="/static/app_food/img/up.png" style="width: 90px; height: 70px;"></a>
 </body>
 </html>
