@@ -16,36 +16,30 @@ class Parser:
         response.encoding = 'utf8'
         pizza_data = response.text
 
-        pizza_items = []
+        product_items = []
         to_parse = BeautifulSoup(pizza_data, 'html.parser')
         for elem in to_parse.find_all('div', class_='product-card product-card--vertical'):
             try:
-                pizza_name = elem.find('div', class_='product-card__title').text
-                pizza_img = elem.find('img', class_='media-image__element product-card-media__element').get('src')
-                pizza_price = elem.find('p', class_='product-card__modification-info-price').text
-                pizza_weight = elem.find('p', class_='product-card__modification-info-weight').text
-                pizza_description = elem.find('div', class_='product-card__description').text
-                pizza_items.append((
-                    pizza_name,
-                    pizza_img,
-                    pizza_price,
-                    pizza_weight,
-                    pizza_description.replace("'", "")
-                ))
+                name = elem.find('div', class_='product-card__title').text
+                img = elem.find('img', class_='media-image__element product-card-media__element').get('src')
+                price = elem.find('p', class_='product-card__modification-info-price').text
+                weight = elem.find('p', class_='product-card__modification-info-weight').text
+                description = elem.find('div', class_='product-card__description').text
+                product_items.append((name, img, price, weight, description.replace("'", "")))
             except:
                 print(f'Noy info{elem.text}')
-        return pizza_items
+        return product_items
 
-    def save_to_postgres(self, pizza_items):
-        self.data_client_imp.create_pizza_table()
-        for item in pizza_items:
+    def save_to_postgres(self, product_items):
+        self.data_client_imp.create_product_table()
+        for item in product_items:
             self. data_client_imp.insert(item[0], item[1], item[2], item[3], item[4])
 
     def run(self):
-        pizza_items = []
+        product_items = []
         for link in Parser.links_to_parse:
-            pizza_items.extend(self.get_pizza_by_link(link))
-        self.save_to_postgres(pizza_items)
+            product_items.extend(self.get_pizza_by_link(link))
+        self.save_to_postgres(product_items)
 
 
 Parser().run()

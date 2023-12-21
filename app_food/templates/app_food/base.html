@@ -24,15 +24,23 @@
             <li class="nav-item"><a href="{% url 'home' %}" class="nav-link active" aria-current="page">Дом</a></li>
             <li class="nav-item"><a href="{% url 'menu' %}" class="nav-link">Меню</a></li>
             <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Контакты</a></li>
-            <button type="button" class="btn btn-outline-primary me-2">Авторизоваться</button>
-            <button type="button" class="btn btn-primary">Зарегистрироваться</button>
+<!--            <button type="button" class="btn btn-outline-primary me-2">Авторизоваться</button>-->
+<!--            <button type="button" class="btn btn-primary">Зарегистрироваться</button>-->
         </ul>
+        <form class="d-flex">
+            <button class="btn btn-outline-dark" type="submit" style="height: 64px">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                </svg>Корзина<span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+            </button>
+        </form>
     </header>
     <div class="content">
         {% block content %} {% endblock %}
+        {% block menu %} {% endblock %}
     </div>
     <div id="clock"></div>
-<a href="#" title="Вернуться вверх" class="button-up" style="width: 50px;height: 70px;">
+        <a href="#" title="Вернуться вверх" class="button-up" style="width: 50px;height: 70px;">
     <img src="/static/app_food/img/up.png" style="width: 90px; height: 70px;"></a>
 </body>
 </html>

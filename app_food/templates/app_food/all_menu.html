@@ -1,0 +1,23 @@
+{% extends 'app_food/base.html' %}
+{% load static %}
+
+{% block title %}Меню{% endblock %}
+
+
+{% block menu %}
+    <link rel="stylesheet" href="{% static 'app_food/css/menu.css' %}">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <div class="features">
+        <h1>Выберите пиццу</h1>
+        {% for el in product %}
+        <div class="pizza">
+            <img src="{{ el.img }} " alt="пицца">
+            <h3 class="pizza-name">{{ el.name }}</h3>
+            <p class="price-weight">{{ el.price }} {{ el.weight }}</p>
+            <p class="description">{{ el.description}}</p>
+            <button type="button" class="btn btn-primary"><a href="">Добавить в корзину</a></button>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

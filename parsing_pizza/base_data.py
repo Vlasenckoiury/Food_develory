@@ -8,15 +8,15 @@ class DataClient(ABC):
         pass
 
     @abstractmethod
-    def create_pizza_table(self):
+    def create_product_table(self):
         pass
 
     @abstractmethod
-    def insert(self, pizza_name, pizza_img, pizza_price, pizza_weight, pizza_description):
+    def insert(self, name, img, price, weight, description):
         pass
 
     def run_test(self):
-        self.create_pizza_table()
+        self.create_product_table()
 
 
 class PostgresClient(DataClient):
@@ -33,15 +33,15 @@ class PostgresClient(DataClient):
                 port=self.PORT
         )
 
-    def create_pizza_table(self):
+    def create_product_table(self):
         with self._get_connection() as conn:
             cursor_object = conn.cursor()
-            cursor_object.execute("""CREATE TABLE IF NOT EXISTS menu_pizza(id serial PRIMARY KEY, pizza_name text, pizza_img text, pizza_price text, pizza_weight text, pizza_description text)""")
+            cursor_object.execute("""CREATE TABLE IF NOT EXISTS app_food_product(id serial PRIMARY KEY, name text, img text, price text, weight text, description text)""")
 
-    def insert(self, pizza_name, pizza_img, pizza_price, pizza_weight, pizza_description):
+    def insert(self, name, img, price, weight, description):
         with self._get_connection() as conn:
             cursor = conn.cursor()
-            cursor.execute(f"INSERT INTO menu_pizza (pizza_name,pizza_img,pizza_price,pizza_weight,pizza_description) VALUES ('{pizza_name}', '{pizza_img}', '{pizza_price}', '{pizza_weight}', '{pizza_description}')")
+            cursor.execute(f"INSERT INTO app_food_product (name,img,price,weight,description) VALUES ('{name}', '{img}', '{price}', '{weight}', '{description}')")
             conn.commit()
 
 

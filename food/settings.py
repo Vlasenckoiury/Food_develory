@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app_food',
-    'menu',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +136,4 @@ STATICFILES_DIRS = [
     BASE_DIR / "app_food\static",
     BASE_DIR / "menu\static",
 ]
+
